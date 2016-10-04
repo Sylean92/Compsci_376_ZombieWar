@@ -43,8 +43,6 @@ public:
     ZombieWar(const ZombieWar& orig);
     virtual ~ZombieWar();
     void start();
-private:
-
 };
 
 #endif	/* ZOMBIEWAR_H */
