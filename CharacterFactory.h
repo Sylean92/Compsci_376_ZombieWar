@@ -8,6 +8,7 @@
  * The factory encapsulation the character implementations.
  * 
  */
+// CREATED BY ALYSSA COOKE
 
 #ifndef CHARACTERFACTORY_H
 #define	CHARACTERFACTORY_H
