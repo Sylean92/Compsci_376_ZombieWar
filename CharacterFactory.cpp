@@ -5,6 +5,8 @@
  * Created on May 21, 2015, 1:31 PM
  */
 
+// CREATED BY ALYSSA COOKE
+
 #include "CharacterFactory.h"
 //Listed is other inclded files for this document
 #include "Child.h"
