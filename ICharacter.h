@@ -1,21 +1,20 @@
 /* 
- * File:   ISurvival.h
+ * File:   ICharacter.h
  * Author: thaoc
  *
- * Created on May 20, 2015, 8:08 PM
+ * Created on May 20, 2015, 8:10 PM
  */
 
-#ifndef ISURVIVAL_H
-#define	ISURVIVAL_H
+#ifndef ICHARACTER_H
+#define	ICHARACTER_H
 
-#include "ICharacter.h"
-#include "IZombie.h"
-
-class IZombie;
-
-class ISurvivor: ICharacter{
+class ICharacter{
 public:
-    virtual void attack(IZombie* zombie) = 0;
+    virtual void decreaseHealth(int increment=0) = 0;
+    virtual bool isAlive()=0;
+    //set class for checking is Alive and initialize to 0 AlyssaC
+     virtual bool isAlive() = 0;
+
 };
 
-#endif	/* ISURVIVAL_H */
+#endif	/* ICHARACTER_H */
