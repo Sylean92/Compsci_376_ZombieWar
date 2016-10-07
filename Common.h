@@ -12,7 +12,7 @@ class Common{
 
 private:
 	int health; //variable to hold health
-	const int attack; //variable to store attack strength
+	int attack; //variable to store attack strength
 	
 public:
 	Common(){health = 30; attack = 5;} //Constructor to initialize a common infected
