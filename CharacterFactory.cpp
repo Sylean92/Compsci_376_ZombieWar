@@ -13,7 +13,7 @@
 #include "Teacher.h"
 #include "Soldier.h"
 #include "Common.h"
-#include "Tank.h"
+#include "tank.h"
 
 using namespace std;
 
