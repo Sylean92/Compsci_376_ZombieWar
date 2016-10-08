@@ -28,7 +28,7 @@
 
   double Tank:: getHealth(){
 
-	return Health;
+	return health;
 
   }
 
