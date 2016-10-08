@@ -14,16 +14,9 @@
 class ISurvivor;
 
 class IZombie:ICharacter{
-	private:
-		static IZombie* zombie;
-		static zombie;
-    	public:
-		IZombie();
-		virtual ~IZombie();
-    		virtual void attack(ISurvivor * survivor) = 0;
+    public:
+    virtual void attack(ISurvivor * survivor) = 0;
 };
-
-
 
 #endif	/* IZOMBIE_H */
 
