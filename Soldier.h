@@ -2,14 +2,14 @@
 class Soldier {
   public:
     Soldier();
-    Soldier(double hp, double atk);
+    Soldier(int hp, int atk);
     ~Soldier();
 
-    double getHealth();
-    double getAttack();
-    void setHealth(double newHp);
-    void setAttack(double newAtk);
+    int getHealth();
+    int getAttack();
+    void setHealth(int newHp);
+    void setAttack(intn newAtk);
   private:
-    double health;
-    double attack;
+    int health;
+    int attack;
 };
