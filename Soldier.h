@@ -8,7 +8,7 @@ class Soldier {
     int getHealth();
     int getAttack();
     void setHealth(int newHp);
-    void setAttack(intn newAtk);
+    void setAttack(int newAtk);
   private:
     int health;
     int attack;

@@ -10,13 +10,24 @@
 
 #include "ICharacter.h"
 #include "ISurvivor.h"
+#include <string>
+
+using namespace std;
 
 class ISurvivor;
 
-class IZombie:ICharacter{
-    public:
-    virtual void attack(ISurvivor * survivor) = 0;
+class IZombie:public ICharacter{
+//	private:
+	//	static IZombie* zombie;
+	//	static zombie;
+    	public:
+//		IZombie();
+//		virtual ~IZombie();
+    		virtual void attack(ISurvivor * survivor) = 0;
+		virtual string getName(); //function added by Lauren
 };
+
+
 
 #endif	/* IZOMBIE_H */
 

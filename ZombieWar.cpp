@@ -198,7 +198,7 @@ void ZombieWar::start(){
 
 				//if survivor won
 				//VERSION 2.0 second display
-				if (!zomb ->isAlive()) {
+				if (!zomb ->isAlive()) {  
 				cout << endl << surv->getName() << " " << i ;
 				cout << " killed " << zomb->getName() << " " << j;
 				}
@@ -221,7 +221,7 @@ void ZombieWar::start(){
 
                                 //if survivor won
 				//VERSION 2.0 second display
-                                if (!surv ->isAlive()) {
+                                if (!surv ->isAlive()) { 
 				cout << endl << zomb->getName() << " " << i;
 				cout << " killed " << surv->getName() << " " << j;
                         	}
