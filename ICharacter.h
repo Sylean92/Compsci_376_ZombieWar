@@ -12,8 +12,6 @@ class ICharacter{
 public:
     virtual void decreaseHealth(int increment=0) = 0;
     virtual bool isAlive()=0;
-    //set class for checking is Alive and initialize to 0 AlyssaC
-//     virtual bool isAlive() = 0;
 
 };
 
