@@ -4,7 +4,7 @@ Soldier::Soldier() : health(100), attack(10)
 {
 }
 
-Soldier::Soldier(double hp, double atk)  : health(hp), attack(atk)
+Soldier::Soldier(int hp, int atk)  : health(hp), attack(atk)
 {
 }
 
@@ -12,22 +12,22 @@ Soldier::~Soldier()
 {
 }
 
-double Soldier::getHealth()
+int Soldier::getHealth()
 {
   return health;
 }
 
-double Soldier::getAttack()
+int Soldier::getAttack()
 {
   return attack;
 }
 
-void Soldier::setHealth(double newHp)
+void Soldier::setHealth(int newHp)
 {
   health = newHp;
 }
 
-void Soldier::setAttack(double newAtk)
+void Soldier::setAttack(int newAtk)
 {
   attack = newAtk;
 }
