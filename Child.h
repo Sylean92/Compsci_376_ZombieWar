@@ -7,6 +7,10 @@
 
 #ifndef CHILD_H
 #define CHILD_H
+#include "IZombie.h"
+#include "ISurvivor.h"
+
+class IZombie;
 
 class Child{
 
@@ -19,7 +23,7 @@ public:
 	int getHealth(){return health;} //Accessor to return the health
 	void updateHealth(int damage){health -= damage;} //Mutator to update health when attacked
 	int getAttack(){return attack;} //Accessor to return the attack strength
-	
+//	virtual void attack(IZombie * zombie){zombie.updateHealth(getAttack());}
 };
 
 #endif

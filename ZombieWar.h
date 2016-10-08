@@ -16,7 +16,7 @@
 
 #include "ICharacter.h"
 #include "ISurvivor.h"
-#inlcude "IZombie.h"
+#include "IZombie.h"
 #include "CharacterFactory.h"
 #include <vector>
 #include <ctime>
