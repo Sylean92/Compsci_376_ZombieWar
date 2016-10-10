@@ -11,7 +11,7 @@
 //Listed is other inclded files for this document
 #include "Child.h"
 #include "Teacher.h"
-#include "Soldier.h"
+#include "Soldier.cpp"
 #include "Common.h"
 #include "Tank.h"
 
