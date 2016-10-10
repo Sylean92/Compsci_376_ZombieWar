@@ -15,6 +15,7 @@
 #include "Common.h"
 #include "Tank.h"
 #include "Baby.h"
+#include "Runner.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ const string CharacterFactory::baby = "Baby with Bazooka";//Baby With Bazooka = 
 const string CharacterFactory::child = "Child";//child = CharacterFactory name
 const string CharacterFactory::teacher = "Teacher";//teacher = CharacterFactory name
 const string CharacterFactory::soldier = "Soldier";//soldier = CharacterFactory name
+const string CharacterFactory::runner = "Runner";//soldier = CharacterFactory name
 
 CharacterFactory::CharacterFactory() {
 }
@@ -49,6 +51,7 @@ ICharacter* CharacterFactory::makeCharacter(std::string type){
 	if(type ==child) return (ICharacter *) new Child();//child function from Child.h
 	if(type ==tank) return (ICharacter *) new Tank();//Tank function from Tank.h
 	if(type==common) return (ICharacter *) new Common();//Common function from common.h
+	if(type==runner) return (ICharacter *) new Runner();//Common function from common.h
 
     return NULL;
 }
