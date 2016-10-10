@@ -28,19 +28,19 @@
         attack=30;
   }
 
-  double Baby:: getRunnerAttack(){
+  double Runner:: getRunnerAttack(){
 
         return attack;
 
   }
 
-  double Baby:: getRunnerHealth(){
+  double Runner:: getRunnerHealth(){
 
         return health;
 
   }
 
-  void Baby:: setRunnerHealth(double attack){
+  void Runner:: setRunnerHealth(double attack){
 
         health = health-attack;
 
