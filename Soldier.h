@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SOLDIER_H
+#define SOILDER_H
 class Soldier {
   public:
     Soldier();
@@ -13,3 +14,5 @@ class Soldier {
     int health;
     int attack;
 };
+
+#endif

@@ -38,6 +38,8 @@ int ZombieWar::randomN(bool isZombie) {
  * Generates a random number of zombies.
  * @return a pointer to an array of zombies
  */
+int ZombieWar::nTank = 0;
+int ZombieWar::nCommon = 0;
 IZombie * ZombieWar::randomZombies(){
     
 	//Alyssa Cooke created logic for randomZombies
@@ -50,14 +52,14 @@ IZombie * ZombieWar::randomZombies(){
 	//start if statements to create characters
 	if (rand == 1) {
 		//call class ZombieWar and add to the number of Tank zombies
-		ZombieWar::nTank++;
+		nTank++;
 		//next return pointer f from CharacterFactory and make the tank character after adding to number of Tank zombies
 		return (IZombie *) f -> makeCharacter(CharacterFactory::tank); //tank is from CharacterFactory
 	}
 	//if statement to get other Zombie type
 	else if (rand == 0) {
 		//call class ZombieWar and add to the number of Common zombies
-		ZombieWar::nCommon++;
+		nCommon++;
 		//next return pointer f from CharacterFactory and make the common infected character after adding to number of Common Infected zombies
 		return (IZombie *) f -> makeCharacter(CharacterFactory::common); //common is from CharacterFactory
 	}
@@ -69,6 +71,10 @@ IZombie * ZombieWar::randomZombies(){
  * Generates a random set of survivors
  * @return a pointer to an array of survivors
  */
+int ZombieWar::nBaby = 0;
+int ZombieWar::nSoldier = 0;
+int ZombieWar::nTeacher = 0;
+int ZombieWar::nChild = 0;
 ISurvivor * ZombieWar::randomSurvivors(){
 
 	//Alyssa Cooke did logic for randomSurvivors
@@ -79,21 +85,31 @@ ISurvivor * ZombieWar::randomSurvivors(){
 	int rand = this -> randomN(false);
 	
 	//start if statements to create characters
+        if (rand == 5){
+                //add to number of Soldier survivors
+                //ZombieWar::nBaby++;
+                nBaby++;
+                //return point f to make a survivor soldier character
+                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//soldier is from CharacterFactory
+        }
 	if (rand == 4){
 		//add to number of Soldier survivors
-		ZombieWar::nSoldier++;
+		//ZombieWar::nSoldier++;
+                nSoldier++;
 		//return point f to make a survivor soldier character
 		return (ISurvivor *) f -> makeCharacter(CharacterFactory::soldier);//soldier is from CharacterFactory
 	}
 	else if (rand == 3) {
 		// add number to Teacher survivors
-		ZombieWar::nTeacher++;
+		//ZombieWar::nTeacher++;
+                nTeacher++;
 		//return point f to make a survivor teacher character
 		return (ISurvivor *) f -> makeCharacter(CharacterFactory::teacher);//teacher is from CharacterFactory
 	}
 	else if (rand == 2 ) {
 		// add number of Child survivors
-		ZombieWar::nChild++;
+		//ZombieWar::nChild++;
+                nChild++;
 		// return point to f to make a survivor child character
 		return (ISurvivor *) f -> makeCharacter(CharacterFactory::child);//child is from CharacterFactory
 	}

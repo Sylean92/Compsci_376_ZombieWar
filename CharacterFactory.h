@@ -33,6 +33,8 @@ public:
 	static const string tank;
 	static const string common;
 	static const string soldier;
+        //baby character added by andy
+        static const string baby;
 	static const string child;
 	static const string teacher;
 
