@@ -71,6 +71,7 @@ IZombie * ZombieWar::randomZombies(){
  * Generates a random set of survivors
  * @return a pointer to an array of survivors
  */
+int ZombieWar::nRunner = 0;
 int ZombieWar::nBaby = 0;
 int ZombieWar::nSoldier = 0;
 int ZombieWar::nTeacher = 0;
@@ -85,14 +86,20 @@ ISurvivor * ZombieWar::randomSurvivors(){
 	int rand = this -> randomN(false);
 	
 	//start if statements to create characters
-        if (rand == 5){
-                //add to number of Soldier survivors
+	if (rand == 6){
+		//add to number of Runner survirors
+		//ZombieWar::nRunner++;
+		nRunner++;
+		//return point f to make a survivor runner character
+		return (ISurvivor *) f -> makeCharacter(ChracterFactory::runner);//runner is from ChracterFactory
+        else if (rand == 5){
+                //add to number of Baby survivors
                 //ZombieWar::nBaby++;
                 nBaby++;
-                //return point f to make a survivor soldier character
-                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//soldier is from CharacterFactory
+                //return point f to make a survivor baby character
+                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//baby is from CharacterFactory
         }
-	if (rand == 4){
+	else if (rand == 4){
 		//add to number of Soldier survivors
 		//ZombieWar::nSoldier++;
                 nSoldier++;
@@ -173,7 +180,7 @@ void ZombieWar::start(){
 
 	//VERSION 2.0 first display
 	//display numbers of characters
-	cout <<"We have " << numSurvivors << " survivors trying to make it to safety (" << ZombieWar::nChild << "children , " << ZombieWar::nTeacher << " teachers, " <<ZombieWar::nSoldier << " soldiers)" <<endl;
+	cout <<"We have " << numSurvivors << " survivors trying to make it to safety (" << ZombieWar::nChild << "children , " << ZombieWar::nTeacher << " teachers, " <<ZombieWar::nSoldier << " soldiers, " <<ZombieWar::nBaby<<" babies with bazookas,  "<<ZombieWar::nRunner<<" runners)"<<endl;
 	cout <<"But there are " << numZombies << " zombies waiting for them (" << ZombieWar::nCommon << " common infected, " << ZombieWar::nTank << " tanks)" <<endl;
 
 
