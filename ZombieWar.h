@@ -39,6 +39,7 @@ private:
 	static int nChild;
 	static int nCommon;
 	static int nTank;
+	static int nRunner;
 
 public:
     ZombieWar();
