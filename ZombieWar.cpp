@@ -7,13 +7,13 @@
 
 /*
 	MODIFIED BY ALYSSA COOKE
-
 */
 
 #include <iostream>
 #include "ZombieWar.h"
 #include "CharacterFactory.h"
 
+int globalRandomS = 0;
 
 ZombieWar::ZombieWar() {
 }
@@ -26,13 +26,26 @@ ZombieWar::~ZombieWar() {
 
 //added random function generaters
 int rGenerator(int min, int max){
-	return min+rand()% (max-min);
+	int total = rand()% (max-min +1) + min;
+	cout <<"rGenerator:" << total <<endl;
+	return total;
 }
 int ZombieWar::randomN(bool isZombie) {
 	//get values from 0 to 2
-	if (isZombie) return rGenerator(0,3);
+	cout <<"isZombie:"<<isZombie<<endl;
+	if (isZombie) {
+		int value = rGenerator(0,3);
+		return value;
+		// rand() % 3;
+		
+	}
 	//get rest aside 0 to 2
-	return rGenerator(3,8);
+	else{
+		int value2 = rGenerator(3,6);
+		return value2;
+	//	return  rand() % 10;
+
+	}
 }
 /**
  * Generates a random number of zombies.
@@ -40,6 +53,7 @@ int ZombieWar::randomN(bool isZombie) {
  */
 int ZombieWar::nTank = 0;
 int ZombieWar::nCommon = 0;
+
 IZombie * ZombieWar::randomZombies(){
     
 	//Alyssa Cooke created logic for randomZombies
@@ -47,12 +61,20 @@ IZombie * ZombieWar::randomZombies(){
     CharacterFactory *f = CharacterFactory::instance();
 
 	//begin creating random characters
-	int rand = this -> randomN(true); 
+//	int rand = this -> randomN(true); 
+//	cout <<endl <<"randomZombie:" << rand <<endl;
+	cout<<endl<<"CREATED ZOMBIE" <<endl;
+
+	 int rand = rGenerator(0,2);
+        cout <<"randomZombies:"<<rand<<endl;
 
 	//start if statements to create characters
 	if (rand == 1) {
+		//cout <<endl<<"Tank++ : " <<nTank;
 		//call class ZombieWar and add to the number of Tank zombies
 		nTank++;
+		cout <<endl<<"Tank++ : " <<nTank;
+
 		//next return pointer f from CharacterFactory and make the tank character after adding to number of Tank zombies
 		return (IZombie *) f -> makeCharacter(CharacterFactory::tank); //tank is from CharacterFactory
 	}
@@ -60,6 +82,8 @@ IZombie * ZombieWar::randomZombies(){
 	else if (rand == 0) {
 		//call class ZombieWar and add to the number of Common zombies
 		nCommon++;
+		cout <<endl<<"Common++ : " <<nCommon;
+
 		//next return pointer f from CharacterFactory and make the common infected character after adding to number of Common Infected zombies
 		return (IZombie *) f -> makeCharacter(CharacterFactory::common); //common is from CharacterFactory
 	}
@@ -71,11 +95,11 @@ IZombie * ZombieWar::randomZombies(){
  * Generates a random set of survivors
  * @return a pointer to an array of survivors
  */
-int ZombieWar::nRunner = 0;
 int ZombieWar::nBaby = 0;
 int ZombieWar::nSoldier = 0;
 int ZombieWar::nTeacher = 0;
 int ZombieWar::nChild = 0;
+
 ISurvivor * ZombieWar::randomSurvivors(){
 
 	//Alyssa Cooke did logic for randomSurvivors
@@ -83,26 +107,31 @@ ISurvivor * ZombieWar::randomSurvivors(){
     CharacterFactory *f = CharacterFactory::instance();
 
 	//begin creating random characters
-	int rand = this -> randomN(false);
-	
+	//int rand = this -> randomN(false);
+	//cout <<"randomSurv:"<<rand<<end;
+
+
+	cout <<endl <<"CREATED SURVIVOR"<<endl;
+
+         int rand = rGenerator(2,5);
+	cout <<"randomSurv:"<<rand<<endl;
+
 	//start if statements to create characters
-	if (rand == 6){
-		//add to number of Runner survirors
-		//ZombieWar::nRunner++;
-		nRunner++;
-		//return point f to make a survivor runner character
-		return (ISurvivor *) f -> makeCharacter(ChracterFactory::runner);//runner is from ChracterFactory
-        else if (rand == 5){
-                //add to number of Baby survivors
+        if (rand == 5){
+                //add to number of Soldier survivors
                 //ZombieWar::nBaby++;
                 nBaby++;
-                //return point f to make a survivor baby character
-                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//baby is from CharacterFactory
+		cout <<endl<<"Baby++ : " <<nBaby;
+
+                //return point f to make a survivor soldier character
+                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//soldier is from CharacterFactory
         }
-	else if (rand == 4){
+	if (rand == 4){
 		//add to number of Soldier survivors
 		//ZombieWar::nSoldier++;
                 nSoldier++;
+		cout <<endl<<"Soldier++ : " <<nSoldier;
+
 		//return point f to make a survivor soldier character
 		return (ISurvivor *) f -> makeCharacter(CharacterFactory::soldier);//soldier is from CharacterFactory
 	}
@@ -110,6 +139,8 @@ ISurvivor * ZombieWar::randomSurvivors(){
 		// add number to Teacher survivors
 		//ZombieWar::nTeacher++;
                 nTeacher++;
+		cout <<endl<<"teacher++ : " <<nTeacher;
+
 		//return point f to make a survivor teacher character
 		return (ISurvivor *) f -> makeCharacter(CharacterFactory::teacher);//teacher is from CharacterFactory
 	}
@@ -117,6 +148,8 @@ ISurvivor * ZombieWar::randomSurvivors(){
 		// add number of Child survivors
 		//ZombieWar::nChild++;
                 nChild++;
+		cout <<endl<<"Child++ : " <<nChild;
+
 		// return point to f to make a survivor child character
 		return (ISurvivor *) f -> makeCharacter(CharacterFactory::child);//child is from CharacterFactory
 	}
@@ -160,15 +193,32 @@ void ZombieWar::start(){
 
 	//create random numbers
 	int numSurvivors = rand() % 10;
+	cout <<"numSurv:"<<numSurvivors<<endl;
 	int numZombies = rand() % 10;
-
+	cout<<"numZombies:"<<numZombies<<endl;
 	//fill vectors with random numbers recently created
-	for (int i = 0; i <numSurvivors; i++); {
+	
+	for (int i = 0; i <numSurvivors; i++) {
+	
+		//cout <<i << endl;	
 		sVec.push_back(randomSurvivors()); //push back new survivor
+		//cout <<"Vect:"<<n<<" ";
+		//cout <<"pushed into randomSurvivors"<<endl;
+		//cout <<endl<<sVec[i]<<endl;
+		
 	}
-    	for (int i = 0; i < numZombies; i++); {
+	cout <<endl;
+    
+	for (int j = 0; j < numZombies; j++); {
+		
 		zVec.push_back(randomZombies()); //push back new zombie
+		//cout<<"zVect:"<<vi<<" ";
+		//cout <<"pushed into randomZombies"<<endl;
+               // cout <<endl<<zVec[i]<<endl;
+
 	}
+
+	cout <<endl;
 
 	int sWin = 0;
 
@@ -180,8 +230,8 @@ void ZombieWar::start(){
 
 	//VERSION 2.0 first display
 	//display numbers of characters
-	cout <<"We have " << numSurvivors << " survivors trying to make it to safety (" << ZombieWar::nChild << "children , " << ZombieWar::nTeacher << " teachers, " <<ZombieWar::nSoldier << " soldiers, " <<ZombieWar::nBaby<<" babies with bazookas,  "<<ZombieWar::nRunner<<" runners)"<<endl;
-	cout <<"But there are " << numZombies << " zombies waiting for them (" << ZombieWar::nCommon << " common infected, " << ZombieWar::nTank << " tanks)" <<endl;
+	cout <<"We have " << numSurvivors << " survivors trying to make it to safety (" <<nBaby<<" baby, "<< nChild << " children , " << nTeacher << " teachers, " <<nSoldier << " soldiers)" <<endl;
+	cout <<"But there are " << numZombies << " zombies waiting for them (" << nCommon << " common infected, " << nTank << " tanks)" <<endl;
 
 
 	while(true) {
@@ -189,6 +239,7 @@ void ZombieWar::start(){
 	
 		//set a bool variable when everyone is dead
 		bool DeadDone = true;
+		cout <<"DeadDone: " << DeadDone << endl;
 			//prevent DeadDone from being true if all not true;
 			for (int i = 0; i < sVec.size(); i++){
 				if(sVec[i] ->isAlive()) DeadDone = false; //make false if character in vector i is not Dead
