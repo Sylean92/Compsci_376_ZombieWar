@@ -12,6 +12,7 @@
 #include <iostream>
 #include "ZombieWar.h"
 #include "CharacterFactory.h"
+#include "CharacterFactory.cpp"
 
 int globalRandomS = 0;
 
