@@ -1,18 +1,33 @@
 /* 
- * File:   ICharacter.h
+ * File:   CharacterFactory.cpp
  * Author: thaoc
- *
- * Created on May 20, 2015, 8:10 PM
+ * 
+ * Created on May 21, 2015, 1:31 PM
  */
 
-#ifndef ICHARACTER_H
-#define	ICHARACTER_H
+#include "CharacterFactory.h"
 
-class ICharacter{
-public:
-    virtual void decreaseHealth(int increment=0) = 0;
-    virtual bool isAlive()=0;
-};
+CharacterFactory::CharacterFactory() {
+}
 
-#endif	/* ICHARACTER_H */
+CharacterFactory::CharacterFactory(const CharacterFactory& orig) {
+}
 
+CharacterFactory::~CharacterFactory() {
+    i = new CharacterFactory();
+}
+
+ICharacter* CharacterFactory::makeCharacter(std::string type){
+
+    //make a character based on type
+    //e.g. if type is "common infected", make CommonInfect
+    
+    return NULL;
+}
+
+CharacterFactory * CharacterFactory::i = 0;
+
+CharacterFactory* CharacterFactory::instance(){
+    if (!i) i = new CharacterFactory();
+    return i;
+}
