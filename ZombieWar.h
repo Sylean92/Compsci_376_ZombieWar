@@ -35,11 +35,10 @@ private:
 	bool allDead(vector<ICharacter> chVector);
 	static int nSoldier;
 	static int nTeacher;
-        static int nBaby;
 	static int nChild;
 	static int nCommon;
 	static int nTank;
-	static int nRunner;
+	static int nBaby;
 
 public:
     ZombieWar();
