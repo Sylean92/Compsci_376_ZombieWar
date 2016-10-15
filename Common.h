@@ -7,19 +7,28 @@
 
 #ifndef COMMON_H
 #define COMMON_H
+#include "ISurvivor.h"
+#include "IZombie.h"
+
+class ISurvivor;
 
 class Common{
 
 private:
 	int health; //variable to hold health
-	int attack; //variable to store attack strength
+	int at; //variable to store attack strength
 	
 public:
-	Common(){health = 30; attack = 5;} //Constructor to initialize a common infected
+	Common(){health = 30; at = 5;} //Constructor to initialize a common infected
 	int getHealth(){return health;} //Accessor to return the health
-	void updateHealth(int damage){health -= damage;} //Mutator to update health when attacked
-	int getAttack(){return attack;} //Accessor to return the attack strength
-	
+	void decreaseHealth(int damage){health -= damage;} //Mutator to update health when attacked
+	int getAttack() {return at;}
+
+	 virtual void attack(ISurvivor * Survivor){
+                Survivor -> decreaseHealth(getAttack());
+        }
+
 };
 
 #endif
+
