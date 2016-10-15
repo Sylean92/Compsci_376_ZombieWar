@@ -5,8 +5,8 @@
  * Created on May 20, 2015, 8:08 PM
  */
 
-#ifndef ISURVIVAL_H
-#define	ISURVIVAL_H
+#ifndef ISURVIVOR_H
+#define	ISURVIVOR_H
 
 #include "ICharacter.h"
 #include "IZombie.h"
@@ -26,3 +26,4 @@ public:
 };
 
 #endif	/* ISURVIVAL_H */
+
