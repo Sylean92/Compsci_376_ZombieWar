@@ -16,14 +16,19 @@ class Child{
 
 private:
 	int health; //variable to hold health
-	int attack; //variable to store attack strength
+	int at; //variable to store attack strength
 	
 public:
-	Child(){health = 20; attack = 2;} //Constructor to initialize a child
+	Child(){health = 20; at = 2;} //Constructor to initialize a child
 	int getHealth(){return health;} //Accessor to return the health
-	void updateHealth(int damage){health -= damage;} //Mutator to update health when attacked
-	int getAttack(){return attack;} //Accessor to return the attack strength
-//	virtual void attack(IZombie * zombie){zombie.updateHealth(getAttack());}
+	void decreaseHealth(int damage){health -= damage;} //Mutator to update health when attacked
+	int getAttack(){return at;} //Accessor to return the attack strength
+
+
+	virtual void attack(IZombie * zombie){
+		zombie -> decreaseHealth(getAttack());
+	}
+
 };
 
 #endif
