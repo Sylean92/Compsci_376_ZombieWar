@@ -100,6 +100,7 @@ int ZombieWar::nBaby = 0;
 int ZombieWar::nSoldier = 0;
 int ZombieWar::nTeacher = 0;
 int ZombieWar::nChild = 0;
+int ZombieWar::nRunner = 0;
 
 ISurvivor * ZombieWar::randomSurvivors(){
 
@@ -114,18 +115,27 @@ ISurvivor * ZombieWar::randomSurvivors(){
 
 	cout <<endl <<"CREATED SURVIVOR"<<endl;
 
-         int rand = rGenerator(2,5);
+         int rand = rGenerator(2,6);
 	cout <<"randomSurv:"<<rand<<endl;
 
 	//start if statements to create characters
+	if (rand == 6){
+                //add to number of Runner survivors
+                //ZombieWar::nRunner++;
+                nRunner++;
+		cout <<endl<<"Runner++ : " <<nRunner;
+
+                //return point f to make a survivor runner character
+                return (ISurvivor *) f -> makeCharacter(CharacterFactory::runner);//runner is from CharacterFactory
+        }
         if (rand == 5){
-                //add to number of Soldier survivors
+                //add to number of Baby survivors
                 //ZombieWar::nBaby++;
                 nBaby++;
 		cout <<endl<<"Baby++ : " <<nBaby;
 
-                //return point f to make a survivor soldier character
-                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//soldier is from CharacterFactory
+                //return point f to make a survivor baby character
+                return (ISurvivor *) f -> makeCharacter(CharacterFactory::baby);//baby is from CharacterFactory
         }
 	if (rand == 4){
 		//add to number of Soldier survivors
@@ -231,7 +241,7 @@ void ZombieWar::start(){
 
 	//VERSION 2.0 first display
 	//display numbers of characters
-	cout <<"We have " << numSurvivors << " survivors trying to make it to safety (" <<nBaby<<" baby, "<< nChild << " children , " << nTeacher << " teachers, " <<nSoldier << " soldiers)" <<endl;
+	cout <<"We have " << numSurvivors << " survivors trying to make it to safety (" <<nBaby<<" babies, "<< nChild << " children , " << nTeacher << " teachers, "<< nRunner<<" runners, " <<nSoldier << " soldiers)" <<endl;
 	cout <<"But there are " << numZombies << " zombies waiting for them (" << nCommon << " common infected, " << nTank << " tanks)" <<endl;
 
 
