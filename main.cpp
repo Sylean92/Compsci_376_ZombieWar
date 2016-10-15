@@ -7,9 +7,9 @@
 
 #include <cstdlib>
 #include "ZombieWar.h"
-#include "ZombieWar.cpp"
 
 int main(int argc, char** argv) {
     ZombieWar* zw = new ZombieWar();
     zw->start();
 }
+
