@@ -12,7 +12,7 @@ class ICharacter{
 public:
     virtual void decreaseHealth(int increment=0) = 0;
     virtual bool isAlive()=0;
-
 };
 
 #endif	/* ICHARACTER_H */
+
