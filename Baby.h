@@ -1,63 +1,63 @@
-#ifndef TANK_H
-#define TANK_H
+#ifndef BABY_H
+#define BABY_H
+ 
 
+class IZombie;
 
-class ISurvivor;
+class Baby {
+  // public:
+//     Baby();
+//     ~Baby();
 
-class Tank{
+//     double getBabyHealth();
+ //    double getBabyAttack();
+ //    void setBabyHealth(double newHp);
 
-private:
-        int health; //variable to hold health
-        int at; //variable to store attack strength
+//   private:
+ //    double health;
+ //    double attack;
 
-public:
-        Tank(){health = 150; at = 20;} //Constructor to initialize a common infected
+/*
+  Baby :: Baby(){
+
+        health=150;
+        attack=20;
+  }
+
+  double Baby:: getBabyAttack(){
+
+        return attack;
+
+  }
+
+  double Baby:: getBabyHealth(){
+
+        return health;
+
+  }
+
+  void Baby:: setBabyHealth(double attack){
+
+        health = health-attack;
+
+  }
+*/
+	private:
+		int health;
+		int at;
+	public:
+
+        Baby(){health = 20; at = 2;} //Constructor to initialize a child
         int getHealth(){return health;} //Accessor to return the health
         void decreaseHealth(int damage){health -= damage;} //Mutator to update health when attacked
-        int getAttack() {return at;}
+        int getAttack(){return at;} //Accessor to return the attack strength
 
-         virtual void attack(ISurvivor * Survivor){
-                Survivor -> decreaseHealth(getAttack());
+
+        virtual void attack(IZombie * zombie){
+                zombie -> decreaseHealth(getAttack());
         }
 
 };
 
- /*  public:
-     Tank();
-     ~Tank();
- 
-     double getHealth();
-     double getAttack();
-     void setHealth(double newHp);
-
-   private:
-     double health;
-     double attack;
- };
-
-  Tank :: Tank(){
-
-	health=150;
-	attack=20;
-  }
-
-  double Tank:: getAttack(){
-
-	return attack;
-
-  }
-
-  double Tank:: getHealth(){
-
-	return health;
-
-  }
-
-  void Tank:: setHealth(double attack){
-
-	health = health-attack;
-
-  }
-*/
 
 #endif
