@@ -1,33 +1,26 @@
-#include "Soldier.h"
+#ifndef SOLDIER_H
+#define SOILDER_H
 
-Soldier::Soldier() : health(100), attack(10)
-{
-}
+class IZombie;
 
-Soldier::Soldier(int hp, int atk)  : health(hp), attack(atk)
-{
-}
+class Soldier{
 
-Soldier::~Soldier() 
-{
-}
+private:
+        int health; //variable to hold health
+        int at; //variable to store attack strength
 
-int Soldier::getHealth()
-{
-  return health;
-}
+public:
+        Soldier(){health = 100; at = 10;} //Constructor to initialize a soldier
+        int getHealth(){return health;} //Accessor to return the health
+        void decreaseHealth(int damage){health -= damage;} //Mutator to update health when attacked
+        int getAttack(){return at;} //Accessor to return the attack strength
 
-int Soldier::getAttack()
-{
-  return attack;
-}
 
-void Soldier::setHealth(int newHp)
-{
-  health = newHp;
-}
+        virtual void attack(IZombie * zombie){
+                zombie -> decreaseHealth(getAttack());
+        }
 
-void Soldier::setAttack(int newAtk)
-{
-  attack = newAtk;
-}
+};
+
+#endif
+
