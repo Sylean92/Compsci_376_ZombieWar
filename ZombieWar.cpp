@@ -249,17 +249,17 @@ void ZombieWar::start()
 
 	int sWin = 0;
 
-	
+	/*
 		//VERSION 1.0 first display
 		cout <<"We have " << numSurvivors << " trying to make it to safety" <<endl;
 		cout <<"But there are " << numZombies << " waiting for them." << endl;
-	 
-/*
+	 */
+
 	//VERSION 2.0 first display
 	//display numbers of characters
 	cout << "We have " << numSurvivors << " survivors trying to make it to safety (" << nBaby << " baby, " << nChild << " children , " << nTeacher << " teachers, and " << nSoldier << " soldiers)" << endl;
 	cout << "But there are " << numZombies << " zombies waiting for them (" << nCommon << " common infected, " << nTank << " tanks, and " << nRunner << " runners) " << endl;
-*/
+
 
 	while (true) {
 		//int sWin = 0;
