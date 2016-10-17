@@ -6,9 +6,7 @@
  */
 
 /*
-
 	CREATED BY ALYSSA COOKE
-
 */
 
 #ifndef ZOMBIEWAR_H
@@ -39,6 +37,7 @@ private:
 	static int nCommon;
 	static int nTank;
 	static int nBaby;
+	static int nRunner;
 
 public:
     ZombieWar();
