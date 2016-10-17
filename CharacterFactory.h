@@ -37,9 +37,8 @@ public:
         static const string baby;
 	static const string child;
 	static const string teacher;
+	static const string runner; 
 
 };
 
 #endif	/* CHARACTERFACTORY_H */
-
-
