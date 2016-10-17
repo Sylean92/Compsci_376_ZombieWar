@@ -25,8 +25,8 @@ class Runner {
         int getAttack(){return at;} //Accessor to return the attack strength
 
 
-        virtual void attack(IZombie * zombie){
-                zombie -> decreaseHealth(getAttack());
+       	 virtual void attack(ISurvivor * Survivor){
+                Survivor -> decreaseHealth(getAttack());
         }
 
 };
